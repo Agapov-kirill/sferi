@@ -16,6 +16,14 @@ reveals.forEach((block) => revealObserver.observe(block));
 
 const form = document.getElementById('apply-form');
 const messageEl = document.getElementById('form-message');
+const apiEndpoint = document.body.dataset.apiEndpoint || '/api/apply';
+
+const isGitHubPages = window.location.hostname.endsWith('github.io');
+if (isGitHubPages && apiEndpoint.startsWith('/')) {
+  console.warn(
+    'GitHub Pages не исполняет serverless API. Укажите абсолютный backend endpoint в data-api-endpoint у <body>.'
+  );
+}
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -39,7 +47,7 @@ form.addEventListener('submit', async (event) => {
     messageEl.textContent = 'Отправляем заявку...';
     messageEl.className = 'form-message';
 
-    const response = await fetch('/api/apply', {
+    const response = await fetch(apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -54,7 +62,12 @@ form.addEventListener('submit', async (event) => {
 
     form.reset();
   } catch (error) {
-    messageEl.textContent = 'Ошибка отправки. Попробуй ещё раз чуть позже.';
+    if (isGitHubPages && apiEndpoint.startsWith('/')) {
+      messageEl.textContent =
+        'На GitHub Pages форма не отправляется без внешнего backend URL. Укажи data-api-endpoint в index.html.';
+    } else {
+      messageEl.textContent = 'Ошибка отправки. Попробуй ещё раз чуть позже.';
+    }
     messageEl.className = 'form-message error';
   }
 });
