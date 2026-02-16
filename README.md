@@ -1,34 +1,19 @@
-# Сферы — single-page landing + serverless форма
+# Сферы — landing + serverless form delivery
 
-Готовый проект: `index.html`, `privacy.html`, `styles.css`, `script.js`, `api/apply.js` и инфраструктура для Vercel.
+Одностраничный лендинг с формой заявки и серверной обработкой `POST /api/apply`.
 
-## Что внутри
+## Что реализовано
 
-- Тёмный SaaS-стиль (blue/black), glow-эффекты, glass-карточки, адаптив.
-- Анимации появления блоков на `IntersectionObserver` + micro-interactions.
-- Tabs-блок форматов: онлайн / офлайн Москва.
-- Форма с:
-  - hidden `format` (`online_free / online_paid / offline_moscow`),
-  - honeypot (`website`) от простого спама,
-  - обязательным согласием и ссылкой на privacy.
-- Serverless endpoint `/api/apply`:
-  - валидация,
-  - проверка honeypot,
-  - простой rate-limit по IP,
-  - одновременная отправка в Telegram и на email.
+- Лендинг в минималистичном стиле (mobile-first, анимации появления блоков, адаптивная сетка).
+- Отдельная страница `privacy.html`.
+- Форма заявки с обязательным согласием на обработку персональных данных.
+- Серверная отправка заявки одновременно:
+  - в Telegram-группу (ботом),
+  - на email `agapov.kirill@gmail.com`.
 
-## Установка и запуск
+## Переменные окружения
 
-```bash
-npm install
-npx vercel dev --listen 3000
-```
-
-Открой: `http://localhost:3000`.
-
-## ENV переменные
-
-Скопируй `.env.example` в `.env` и задай значения:
+Скопируйте `.env.example` и задайте значения:
 
 - `TELEGRAM_BOT_TOKEN`
 - `TELEGRAM_CHAT_ID`
