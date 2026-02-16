@@ -11,184 +11,153 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css?v=20260216" />
-    <script src="main.js?v=20260216" defer></script>
+    <script src="script.js?v=20260216" defer></script>
   </head>
   <body data-api-endpoint="/api/apply">
-    <header class="hero section">
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <header class="section hero">
       <div class="container reveal">
-        <p class="eyebrow">Мужской клуб</p>
+        <p class="eyebrow">Сферы · мужской клуб</p>
         <h1>Сферы — мужской клуб</h1>
         <p class="subtitle">12 мужских сфер. 12 месяцев. Каждый год — новый уровень.</p>
         <p class="lead">
-          Пространство для мужчин 25–40, где ты растёшь через честный диалог, поддержку и
-          ответственность — в работе, отношениях и жизни.
+          Спокойная сила, ясность, ответственность и окружение — без пафоса и мотивационных криков.
         </p>
-        <a class="btn" href="#apply">Подать заявку в бесплатную группу</a>
-        <p class="fine">Первая онлайн-группа — бесплатно. Всего 8 мест. Отбор участников.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary js-format" href="#apply" data-format="online_free">Подать заявку в бесплатную онлайн-группу</a>
+          <a class="btn btn-ghost" href="#formats">Смотреть форматы: онлайн / офлайн</a>
+        </div>
+        <p class="fine">Первая онлайн-группа — бесплатно. 8 мест. Отбор участников.</p>
       </div>
     </header>
 
     <main>
       <section class="section">
         <div class="container reveal">
-          <h2>О чем клуб</h2>
-          <p>Не про мотивацию. Не про успех напоказ. И не про поверхностные разговоры.</p>
-          <p>
-            Это место, где мужчина может: высказаться без масок, быть услышанным, получить честную
-            обратную связь, поддержать других, увидеть себя глубже.
-          </p>
-          <p>
-            Мы идем через 12 мужских сфер — от внутренней опоры до реализации и отношений.
-          </p>
-          <ul class="sphere-list">
-            <li>характер</li>
-            <li>ответственность</li>
-            <li>деньги и реализация</li>
-            <li>отношения</li>
-            <li>семья</li>
-            <li>внутренняя опора</li>
-            <li>здоровье/энергия</li>
-            <li>дисциплина</li>
-            <li>окружение</li>
-            <li>цели/смысл</li>
-            <li>лидерство</li>
-            <li>зрелость</li>
+          <h2>В чем смысл</h2>
+          <p class="muted">Не терапия. Не мотивация. Не «успех напоказ».</p>
+          <p>Это пространство, где мужчина говорит честно, держит слово и растет через практику.</p>
+          <ul class="sphere-grid">
+            <li>характер</li><li>ответственность</li><li>деньги/реализация</li><li>отношения</li><li>семья</li><li>внутренняя опора</li>
+            <li>здоровье/энергия</li><li>дисциплина</li><li>окружение</li><li>цели/смысл</li><li>лидерство</li><li>зрелость</li>
           </ul>
         </div>
       </section>
 
-      <section class="section alt">
+      <section class="section section-soft">
         <div class="container reveal">
-          <h2>Чем полезно</h2>
-          <div class="grid cards">
-            <article class="card">ясность и порядок в голове</article>
-            <article class="card">взрослая ответственность вместо хаоса</article>
-            <article class="card">сильное окружение и поддержка</article>
-            <article class="card">честная обратная связь без унижения</article>
-            <article class="card">устойчивость в стрессах и решениях</article>
-            <article class="card">глубже понимать себя и свои реакции</article>
+          <h2>Что дает клуб</h2>
+          <div class="card-grid">
+            <article class="card"><span class="icon">◈</span><h3>Ясность и порядок</h3></article>
+            <article class="card"><span class="icon">◉</span><h3>Внутренняя опора</h3></article>
+            <article class="card"><span class="icon">◇</span><h3>Честная обратная связь</h3></article>
+            <article class="card"><span class="icon">◎</span><h3>Сильное окружение</h3></article>
+            <article class="card"><span class="icon">⬢</span><h3>Ответственность и дисциплина</h3></article>
+            <article class="card"><span class="icon">✦</span><h3>Устойчивость в решениях</h3></article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="formats">
         <div class="container reveal">
-          <h2>Для кого / не для кого</h2>
-          <div class="grid two-col">
-            <div class="panel">
-              <h3>Подойдет, если:</h3>
-              <ul>
-                <li>чувствуешь, что можешь больше</li>
-                <li>устал тащить всё в одиночку</li>
-                <li>хочешь ясности и внутренней опоры</li>
-                <li>готов работать над собой и держать слово</li>
-              </ul>
-            </div>
-            <div class="panel">
-              <h3>Не подойдет, если:</h3>
-              <ul>
-                <li>ищешь волшебную таблетку</li>
-                <li>хочешь спорить и доказывать вместо работы</li>
-                <li>не готов к честному разговору и дисциплине</li>
-              </ul>
-            </div>
+          <h2>Форматы</h2>
+          <div class="tabs" role="tablist" aria-label="Форматы клуба">
+            <button class="tab-btn is-active" role="tab" aria-selected="true" data-tab="online">Онлайн</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="offline">Офлайн Москва</button>
           </div>
+
+          <article class="tab-panel is-active" data-panel="online">
+            <h3>Онлайн: дисциплина и рост в своем темпе</h3>
+            <p>Если ты много работаешь, часто в разъездах или ценишь регулярность — онлайн дает стабильный ритм и поддержку.</p>
+            <ul>
+              <li>Регулярность: одна точка силы каждую неделю</li>
+              <li>Честность без игры в образ</li>
+              <li>Окружение: мужчины, которые держат слово</li>
+              <li>Фокус: меньше шума — больше ясности</li>
+              <li>Поддержка и обратная связь</li>
+            </ul>
+            <p class="muted">Группа до 8 мужчин · Раз в неделю, 3,5 часа</p>
+            <p><strong>Первая онлайн-группа — бесплатно (отбор, 8 мест)</strong><br />Далее онлайн — 3 000 ₽/мес</p>
+            <a class="btn btn-primary js-format" href="#apply" data-format="online_free">Подать заявку на бесплатную онлайн-группу</a>
+          </article>
+
+          <article class="tab-panel" data-panel="offline">
+            <h3>Офлайн Москва: живое присутствие и глубина</h3>
+            <p>Офлайн — это другой уровень контакта: присутствие, энергия группы, живое поле и глубина разговоров.</p>
+            <ul>
+              <li>Сильнее ощущается поддержка и «плечо»</li>
+              <li>Глубже контакт и ответственность</li>
+              <li>Живое окружение и связи</li>
+              <li>Больше собранности и включенности</li>
+              <li>Мужское пространство без лишних слов</li>
+            </ul>
+            <p><strong>Офлайн-группа в Москве — 6 000 ₽/мес</strong></p>
+            <a class="btn btn-primary js-format" href="#apply" data-format="offline_moscow">Оставить заявку на офлайн-группу</a>
+          </article>
         </div>
       </section>
 
-      <section class="section alt">
+      <section class="section section-soft">
         <div class="container reveal">
-          <h2>Формат и отбор</h2>
-          <ul>
-            <li>Онлайн-группа: до 8 мужчин</li>
-            <li>Встреча раз в неделю, 3,5 часа</li>
-            <li>Живой диалог, поддержка и обратная связь</li>
-          </ul>
-          <h3>Процесс вступления</h3>
-          <ol>
-            <li>Заполни анкету</li>
+          <h2>Отбор и качество</h2>
+          <p>Мы бережем качество группы, поэтому вход — через отбор.</p>
+          <ol class="steps">
+            <li>Анкета</li>
             <li>Я свяжусь с тобой</li>
-            <li>Проведем короткое собеседование</li>
+            <li>Короткое собеседование</li>
           </ol>
-          <p class="note">Количество мест ограничено. Мы бережем качество группы.</p>
+          <p class="fine">8 мест. Набор ограничен.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="container reveal">
-          <h2>Если не попадешь в бесплатную</h2>
-          <p>Следующие онлайн-группы — 3 000 ₽/мес.</p>
-          <p>Офлайн-группа в Москве — 6 000 ₽/мес.</p>
-          <p class="note">Ты сможешь выбрать формат, который ближе.</p>
-        </div>
-      </section>
-
-      <section class="section alt">
-        <div class="container reveal">
-          <h2>О ведущем</h2>
-          <ul>
-            <li>Мой путь начался в 16 лет — духовные практики, йога, медитация.</li>
-            <li>В 20 лет — первый бизнес.</li>
-            <li>Были взлеты: большие обороты и рост.</li>
-            <li>Были падения: долги и потеря всего.</li>
-            <li>Я поднялся и начал с нуля.</li>
-            <li>Сегодня: директор по маркетингу, собственные проекты.</li>
-            <li>Я муж и отец двоих детей.</li>
-          </ul>
-          <p>Этот клуб — пространство, которое я сам искал много лет.</p>
-          <p>Без инфобизнеса. Без пафоса. Только честная мужская работа.</p>
+          <h2>Ведущий: Кирилл Агапов</h2>
+          <p>С 16 лет — духовные практики, йога, медитация.</p>
+          <p>Первый бизнес в 20 лет. Были большие обороты и рост.</p>
+          <p>Были падения: долги, потеря всего. Поднялся и начал с нуля.</p>
+          <p>Сегодня — директор по маркетингу, собственные проекты. Муж, отец двоих детей.</p>
+          <p class="muted">Этот клуб — пространство, которое я сам искал много лет. Без пафоса. Только честная мужская работа.</p>
         </div>
       </section>
 
       <section class="section cta">
         <div class="container reveal">
-          <h2>Если чувствуешь отклик — подай заявку.</h2>
+          <h2>Если есть отклик — подай заявку.</h2>
           <p>Заполни анкету — и мы назначим собеседование.</p>
-          <a class="btn" href="#apply">Заполнить анкету</a>
-          <p class="fine">Первая группа — бесплатно. 8 мест. Отбор.</p>
+          <a class="btn btn-primary js-format" href="#apply" data-format="online_free">Заполнить анкету</a>
         </div>
       </section>
 
       <section class="section" id="apply">
         <div class="container reveal">
-          <h2>Анкета участника</h2>
-          <form id="apply-form" class="apply-form" novalidate>
-            <label>
-              Имя
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              Возраст
-              <input type="number" name="age" required min="18" max="99" />
-            </label>
-            <label>
-              Род деятельности
-              <input type="text" name="occupation" required />
-            </label>
-            <label>
-              Почему хочешь вступить
-              <textarea name="motivation" rows="5" required></textarea>
-            </label>
-            <label>
-              Контакт (Telegram или телефон)
-              <input type="text" name="contact" required />
-            </label>
+          <h2>Анкета</h2>
+          <form id="apply-form" class="form" novalidate>
+            <input type="hidden" name="format" id="format-field" value="online_free" />
+            <input class="hp" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
+
+            <label>Имя <input type="text" name="name" required /></label>
+            <label>Возраст <input type="number" name="age" min="18" max="99" required /></label>
+            <label>Род деятельности <input type="text" name="occupation" required /></label>
+            <label>Почему хочешь вступить <textarea name="motivation" rows="5" required></textarea></label>
+            <label>Контакт (Telegram или телефон) <input type="text" name="contact" required /></label>
+
             <label class="consent">
               <input type="checkbox" name="consent" required />
               <span>
                 Я даю согласие на обработку персональных данных и принимаю условия
-                <a href="privacy.html">Политики конфиденциальности</a>
+                <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политики конфиденциальности</a>
               </span>
             </label>
-            <p class="fine">
-              Согласие можно отозвать, написав по указанным контактам. Данные используются только
-              для связи по заявке и организации участия в клубе.
-            </p>
-            <button class="btn" type="submit">Отправить заявку</button>
+            <p class="fine">Согласие можно отозвать, написав на agapov.kirill@gmail.com. Данные используются только для связи по заявке и организации участия в клубе.</p>
+
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
             <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -199,7 +168,6 @@
       <div class="container">
         <p>Сферы — мужской клуб. Онлайн и офлайн (Москва).</p>
         <p><a href="privacy.html">Политика конфиденциальности</a></p>
-        <p class="fine">Не является медицинской или психотерапевтической услугой.</p>
       </div>
     </footer>
   </body>

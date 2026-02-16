@@ -1,19 +1,34 @@
-# Сферы — landing + serverless form delivery
+# Сферы — single-page landing + serverless форма
 
-Одностраничный лендинг с формой заявки и серверной обработкой `POST /api/apply`.
+Готовый проект: `index.html`, `privacy.html`, `styles.css`, `script.js`, `api/apply.js` и инфраструктура для Vercel.
 
-## Что реализовано
+## Что внутри
 
-- Лендинг в минималистичном стиле (mobile-first, анимации появления блоков, адаптивная сетка).
-- Отдельная страница `privacy.html`.
-- Форма заявки с обязательным согласием на обработку персональных данных.
-- Серверная отправка заявки одновременно:
-  - в Telegram-группу (ботом),
-  - на email `agapov.kirill@gmail.com`.
+- Тёмный SaaS-стиль (blue/black), glow-эффекты, glass-карточки, адаптив.
+- Анимации появления блоков на `IntersectionObserver` + micro-interactions.
+- Tabs-блок форматов: онлайн / офлайн Москва.
+- Форма с:
+  - hidden `format` (`online_free / online_paid / offline_moscow`),
+  - honeypot (`website`) от простого спама,
+  - обязательным согласием и ссылкой на privacy.
+- Serverless endpoint `/api/apply`:
+  - валидация,
+  - проверка honeypot,
+  - простой rate-limit по IP,
+  - одновременная отправка в Telegram и на email.
 
-## Переменные окружения
+## Установка и запуск
 
-Скопируйте `.env.example` и задайте значения:
+```bash
+npm install
+npx vercel dev --listen 3000
+```
+
+Открой: `http://localhost:3000`.
+
+## ENV переменные
+
+Скопируй `.env.example` в `.env` и задай значения:
 
 - `TELEGRAM_BOT_TOKEN`
 - `TELEGRAM_CHAT_ID`
@@ -22,38 +37,46 @@
 - `SMTP_USER`
 - `SMTP_PASS`
 - `SMTP_FROM`
-- `TO_EMAIL` (по умолчанию можно оставить `agapov.kirill@gmail.com`)
+- `SMTP_TO` (по умолчанию `agapov.kirill@gmail.com`)
 
-## Локальный запуск
+## Telegram: как получить данные
 
-```bash
-npm install
-npx vercel dev --listen 3000
-```
+1. Создай бота через `@BotFather` и возьми токен.
+2. Добавь бота в нужную группу/чат и выдай право писать сообщения.
+3. Получи `CHAT_ID`:
+   - отправь сообщение в группу,
+   - открой `https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/getUpdates`,
+   - найди `chat.id` нужного чата.
 
-Откройте: `http://localhost:3000`
+## Проверка отправки формы
+
+1. Запусти `vercel dev` с заполненными ENV.
+2. Отправь форму с сайта.
+3. Проверь, что заявка пришла:
+   - в Telegram,
+   - на email (`SMTP_TO`).
+
+Формат сообщения:
+
+- Новая заявка — Сферы
+- Формат
+- Имя
+- Возраст
+- Род деятельности
+- Контакт
+- Почему хочет вступить
+- Дата/время
+- Источник: landing
 
 ## Деплой
 
-Проект подходит для деплоя на Vercel:
+### Vercel (рекомендуется)
 
-- статические файлы — как фронтенд,
-- `api/apply.js` — serverless функция.
+- Импортируй репозиторий в Vercel.
+- Добавь ENV из раздела выше.
+- Деплой автоматически поднимет статику и `/api/apply`.
 
-## GitHub Pages (чтобы сайт обновлялся без «старой версии»)
+### GitHub Pages
 
-В репозиторий добавлен workflow `.github/workflows/deploy-pages.yml`, который публикует текущий `main` в GitHub Pages на каждый push.
-
-Проверьте в GitHub:
-
-1. `Settings → Pages`.
-2. В `Source` должно быть **GitHub Actions**.
-3. После merge в `main` дождитесь успешного workflow `Deploy static site to GitHub Pages`.
-
-Если видите старую страницу:
-
-- убедитесь, что изменения действительно попали в `main` (а не только в PR/другой branch),
-- откройте страницу в hard reload (`Ctrl/Cmd + Shift + R`),
-- либо добавьте `?v=2` к URL для обхода кэша браузера.
-
-> Важно: GitHub Pages раздаёт только статику. `api/apply.js` на github.io не выполняется. Для рабочей отправки формы используйте Vercel/Netlify или отдельный backend URL.
+GitHub Pages раздаёт только статику. `api/apply.js` на github.io не выполняется.
+Если нужен Pages-домен, оставь фронт на Pages, а backend вынеси на Vercel и укажи абсолютный URL в `data-api-endpoint` у `<body>`.
