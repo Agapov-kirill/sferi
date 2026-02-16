@@ -1,0 +1,16 @@
+{
+  "name": "sferi-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev --listen 3000",
+    "start": "npx serve -l 3000 ."
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4",
+    "vercel": "^39.1.0"
+  }
+}
